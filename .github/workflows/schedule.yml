@@ -9,7 +9,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Branch
-      run: |
-        echo ${GITHUB_REF#refs/heads/}
+      - uses: actions/checkout@v2
+      - name: Branch
+        id: get-branch
+        run: |
+          echo ::set-output name=branch::${GITHUB_REF#refs/heads/}
+        
+      - name: Print branch
+        run: |
+          echo ${{ steps.get-branch.outputs.branch }}
