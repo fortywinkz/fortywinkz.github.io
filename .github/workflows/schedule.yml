@@ -1,8 +1,6 @@
 name: Test
 
 on:
-  schedule:
-    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -24,4 +22,3 @@ jobs:
         run: |
           echo ${{ steps.get-branch.outputs.branch }}
           echo ${{ github.event_name }}
-          echo ${{ toJSON(github.event) }}
