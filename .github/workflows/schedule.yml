@@ -21,4 +21,4 @@ jobs:
       - name: Print branch
         run: |
           echo ${{ steps.get-branch.outputs.branch }}
-          echo ${{ toJSON(github.event) }}
+          echo ${{ github.event.action }}
